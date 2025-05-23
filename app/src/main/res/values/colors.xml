@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+    <color name="black">#FF2B2B2B</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray102">#FF656565</color>
+    <color name="background">#FFF5F5F5</color>
+    <color name="card_background">#B3FFBC3F</color>
+    <color name="red">#FFF55A51</color>
+    <color name="green">#FF81C74A</color>
 </resources>
