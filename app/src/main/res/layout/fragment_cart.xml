@@ -28,11 +28,11 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_weight="1"
-            android:text="Toplam: "
+            android:text="@string/cart_total"
             android:textColor="@color/black"
             android:textSize="32sp"
             android:textStyle="bold" />
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
             android:gravity="end"
-            android:text="250"
+            android:text="@string/cart_total_count"
             android:textColor="@color/black"
             android:textSize="32sp"
             android:textStyle="bold" />

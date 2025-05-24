@@ -9,15 +9,22 @@
         android:id="@+id/homeFragment"
         android:name="com.example.f8d.ui.fragment.HomeFragment"
         android:label="fragment_home_page"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.f8d.ui.fragment.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
     <fragment
-        android:id="@+id/cardFragment"
+        android:id="@+id/cartFragment"
         android:name="com.example.f8d.ui.fragment.CartFragment"
-        android:label="fragment_card"
+        android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
 </navigation>

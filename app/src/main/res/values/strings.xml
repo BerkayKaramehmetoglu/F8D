@@ -11,7 +11,7 @@
     <!-- For Detail Menu -->
     <string name="order_title">Izgara Somon</string>
     <string name="order_desc">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."</string>
-    <string name="order_price">250</string>
+    <string name="order_price">0</string>
     <string name="order_submit">Sepete Ekle</string>
     <string name="order_minus">-</string>
     <string name="order_plus">+</string>
@@ -19,6 +19,12 @@
 
     <!-- For Cart Item -->
     <string name="cart_submit">Sepeti Onayla</string>
+    <string name="cart_total">Toplam:</string>
+    <string name="cart_total_count">0</string>
+
+    <!-- For Home Card Item -->
+    <string name="home_tittle">Izgara Somon</string>
+    <string name="home_price">0</string>
 
     <!-- For Menu Item -->
     <string name="home">Ana Sayfa</string>
