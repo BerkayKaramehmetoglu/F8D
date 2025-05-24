@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.f8d.R
 import com.example.f8d.databinding.FragmentHomeBinding
 import com.example.f8d.ui.adapter.FoodAdapter
 import com.example.f8d.ui.viewmodel.HomeViewModel
@@ -27,6 +29,27 @@ class HomeFragment : Fragment() {
         viewModel.foodList.observe(viewLifecycleOwner) {
             val foodAdapter = FoodAdapter(requireContext(), it)
             binding.rv.adapter = foodAdapter
+        }
+
+        binding.navigationBottom.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.bottom_nav_home -> {
+                    findNavController().navigate(R.id.homeFragment)
+                    true
+                }
+
+                R.id.bottom_nav_cart -> {
+                    findNavController().navigate(R.id.home_to_cart)
+                    true
+                }
+
+                R.id.bottom_nav_packet -> {
+                    findNavController().navigate(R.id.home_to_packet)
+                    true
+                }
+
+                else -> false
+            }
         }
 
         return binding.root

@@ -3,9 +3,13 @@ package com.example.f8d.ui.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.f8d.data.entity.Food
 import com.example.f8d.databinding.HomeCardBinding
+import com.example.f8d.ui.fragment.HomeFragmentDirections
 
 class FoodAdapter(var context: Context, var foodList: List<Food>) :
     RecyclerView.Adapter<FoodAdapter.CardViewHolder>() {
@@ -26,6 +30,17 @@ class FoodAdapter(var context: Context, var foodList: List<Food>) :
         val design = holder.design
 
         design.textHomeTitle.text = foodList.yemek_adi
-        design.textHomePrice.text = foodList.yemek_fiyat.toString()
+        design.textHomePrice.text = "${foodList.yemek_fiyat} ₺"
+        getImage(foodList.yemek_resim_adi, design.imageHome)
+
+        design.card.setOnClickListener {
+            val navigate = HomeFragmentDirections.homeToDetail(foodList)
+            it.findNavController().navigate(navigate)
+        }
+    }
+
+    private fun getImage(image: String, design: ImageView) {
+        val url = "http://kasimadalan.pe.hu/yemekler/resimler/${image}"
+        Glide.with(context).load(url).override(350, 350).into(design)
     }
 }

@@ -3,12 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/bottom_nav_home"
         android:icon="@drawable/baseline_home_24"
         android:title="@string/home" />
     <item
+        android:id="@+id/bottom_nav_cart"
         android:icon="@drawable/baseline_shopping_cart_24"
         android:title="@string/cart" />
     <item
+        android:id="@+id/bottom_nav_packet"
         android:icon="@drawable/baseline_box_24"
         android:title="@string/packet" />
 </menu>

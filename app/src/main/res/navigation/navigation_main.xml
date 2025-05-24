@@ -11,20 +11,35 @@
         android:label="fragment_home_page"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_cartFragment"
+            android:id="@+id/home_to_cart"
             app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/home_to_packet"
+            app:destination="@id/packetFragment" />
+        <action
+            android:id="@+id/home_to_detail"
+            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.f8d.ui.fragment.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="Food"
+            app:argType="com.example.f8d.data.entity.Food" />
+        <action
+            android:id="@+id/detail_to_cart"
+            app:destination="@id/cartFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.example.f8d.ui.fragment.CartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/packetFragment"
+        android:name="com.example.f8d.ui.fragment.PacketFragment"
+        android:label="fragment_packet"
+        tools:layout="@layout/fragment_packet" />
 </navigation>
