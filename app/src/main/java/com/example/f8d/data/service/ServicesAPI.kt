@@ -4,6 +4,7 @@ import com.example.f8d.data.entity.CRDResponse
 import com.example.f8d.data.entity.CartResponse
 import com.example.f8d.data.entity.Food
 import com.example.f8d.data.entity.FoodResponse
+import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -27,5 +28,12 @@ interface ServicesAPI {
 
     @POST("yemekler/sepettekiYemekleriGetir.php")
     @FormUrlEncoded
-    suspend fun getCart(@Field("kullanici_adi") username: String): CartResponse
+    suspend fun getCart(@Field("kullanici_adi") username: String): Response<CartResponse>
+
+    @POST("yemekler/sepettenYemekSil.php")
+    @FormUrlEncoded
+    suspend fun deleteCart(
+        @Field("sepet_yemek_id") id: Int,
+        @Field("kullanici_adi") username: String
+    ): CRDResponse
 }

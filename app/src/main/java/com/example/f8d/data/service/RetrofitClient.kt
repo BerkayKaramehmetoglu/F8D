@@ -1,5 +1,6 @@
 package com.example.f8d.data.service
 
+import com.example.f8d.data.service.factory.NullOnEmptyConverterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -8,7 +9,7 @@ class RetrofitClient {
         fun getClient(baseUrl: String): Retrofit {
             return Retrofit.Builder()
                 .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(NullOnEmptyConverterFactory(GsonConverterFactory.create()))
                 .build()
         }
     }

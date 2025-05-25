@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.transition.Visibility
 import com.example.f8d.R
 import com.example.f8d.databinding.FragmentCartBinding
 import com.example.f8d.ui.adapter.CartAdapter
@@ -28,8 +29,13 @@ class CartFragment : Fragment() {
         binding.rv.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel.cartList.observe(viewLifecycleOwner) {
-            val cartAdapter = CartAdapter(requireContext(), it)
+            val cartAdapter = CartAdapter(requireContext(), it, binding, viewModel)
             binding.rv.adapter = cartAdapter
+        }
+
+        viewModel.cartError.observe(viewLifecycleOwner) {
+            binding.textView4.text = viewModel.cartError.value
+            binding.cartTotalPrice.visibility = View.INVISIBLE
         }
 
         return binding.root

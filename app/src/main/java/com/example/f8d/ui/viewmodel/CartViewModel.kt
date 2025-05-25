@@ -2,9 +2,7 @@ package com.example.f8d.ui.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.f8d.data.entity.CRDResponse
 import com.example.f8d.data.entity.Cart
-import com.example.f8d.data.entity.Food
 import com.example.f8d.data.repository.FoodRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -16,6 +14,7 @@ import javax.inject.Inject
 class CartViewModel @Inject constructor(var foodRepository: FoodRepository) : ViewModel() {
 
     var cartList = MutableLiveData<List<Cart>>()
+    var cartError = MutableLiveData<String>()
 
     init {
         getCart("berkay_kara")
@@ -24,7 +23,24 @@ class CartViewModel @Inject constructor(var foodRepository: FoodRepository) : Vi
     fun getCart(username: String) {
         try {
             CoroutineScope(Dispatchers.Main).launch {
-                cartList.value = foodRepository.getCart(username)
+                val cartUser =
+                    foodRepository.getCart(username) //getCart(username) sorun buranın öncesinde
+                println(cartUser)
+                if (cartUser == null || cartUser.sepet_yemekler == null || cartUser.success == 0) {
+                    cartError.value = "Sepetinizde Ürün Yok"
+                } else if (cartUser.sepet_yemekler != null) {
+                    cartList.value = cartUser.sepet_yemekler!!
+                }
+            }
+        } catch (e: Exception) {
+            println(e)
+        }
+    }
+
+    fun deleteCart(id: Int, username: String) {
+        try {
+            CoroutineScope(Dispatchers.Main).launch {
+                foodRepository.deleteCart(id, username)
             }
         } catch (e: Exception) {
             println(e)

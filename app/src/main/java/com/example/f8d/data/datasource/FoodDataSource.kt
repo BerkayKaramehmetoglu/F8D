@@ -1,6 +1,7 @@
 package com.example.f8d.data.datasource
 
 import com.example.f8d.data.entity.Cart
+import com.example.f8d.data.entity.CartResponse
 import com.example.f8d.data.entity.Food
 import com.example.f8d.data.service.ServicesAPI
 import kotlinx.coroutines.Dispatchers
@@ -25,9 +26,13 @@ class FoodDataSource(var foodAPI: ServicesAPI) {
             return@withContext foodAPI.addCart(id, title, imageTitle, price, count, username)
         }
 
-    suspend fun getCart(username: String): List<Cart> =
+    suspend fun getCart(username: String): CartResponse? =
         withContext(Dispatchers.IO) {
-            return@withContext foodAPI.getCart(username).sepet_yemekler
+            return@withContext foodAPI.getCart(username).body()
         }
 
+    suspend fun deleteCart(id: Int, username: String) =
+        withContext(Dispatchers.IO){
+            return@withContext foodAPI.deleteCart(id, username)
+        }
 }

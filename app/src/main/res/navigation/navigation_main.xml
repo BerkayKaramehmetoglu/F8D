@@ -30,7 +30,9 @@
             app:argType="com.example.f8d.data.entity.Food" />
         <action
             android:id="@+id/detail_to_cart"
-            app:destination="@id/cartFragment" />
+            app:destination="@id/cartFragment"
+            app:popUpTo="@id/detailFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/cartFragment"
