@@ -2,7 +2,6 @@ package com.example.f8d.data.service
 
 import com.example.f8d.data.entity.CRDResponse
 import com.example.f8d.data.entity.CartResponse
-import com.example.f8d.data.entity.Food
 import com.example.f8d.data.entity.FoodResponse
 import retrofit2.Response
 import retrofit2.http.Field

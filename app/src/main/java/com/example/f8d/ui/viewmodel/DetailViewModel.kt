@@ -1,10 +1,7 @@
 package com.example.f8d.ui.viewmodel
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.f8d.data.entity.CRDResponse
-import com.example.f8d.data.entity.Food
 import com.example.f8d.data.repository.FoodRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope

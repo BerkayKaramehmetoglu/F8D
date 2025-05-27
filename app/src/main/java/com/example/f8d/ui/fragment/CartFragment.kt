@@ -6,13 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.transition.Visibility
-import com.example.f8d.R
 import com.example.f8d.databinding.FragmentCartBinding
 import com.example.f8d.ui.adapter.CartAdapter
-import com.example.f8d.ui.adapter.FoodAdapter
 import com.example.f8d.ui.viewmodel.CartViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,7 +25,12 @@ class CartFragment : Fragment() {
         binding.rv.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel.cartList.observe(viewLifecycleOwner) {
-            val cartAdapter = CartAdapter(requireContext(), it, binding, viewModel)
+            val cartAdapter = it?.let { it1 ->
+                CartAdapter(
+                    requireContext(),
+                    it1, binding, viewModel
+                )
+            }
             binding.rv.adapter = cartAdapter
         }
 
@@ -46,5 +47,4 @@ class CartFragment : Fragment() {
         val tempViewModel: CartViewModel by viewModels()
         viewModel = tempViewModel
     }
-
 }

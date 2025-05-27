@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,14 +44,21 @@ class HomeFragment : Fragment() {
                     true
                 }
 
-                R.id.bottom_nav_packet -> {
-                    findNavController().navigate(R.id.home_to_packet)
-                    true
-                }
-
                 else -> false
             }
         }
+
+        binding.searchbar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                viewModel.searchCart(query)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                viewModel.searchCart(newText)
+                return true
+            }
+        })
 
         return binding.root
     }
@@ -59,7 +67,5 @@ class HomeFragment : Fragment() {
         super.onCreate(savedInstanceState)
         val tempViewModel: HomeViewModel by viewModels()
         viewModel = tempViewModel
-
     }
-
 }

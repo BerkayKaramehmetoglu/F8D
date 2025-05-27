@@ -1,6 +1,5 @@
 package com.example.f8d.data.datasource
 
-import com.example.f8d.data.entity.Cart
 import com.example.f8d.data.entity.CartResponse
 import com.example.f8d.data.entity.Food
 import com.example.f8d.data.service.ServicesAPI
